@@ -16,8 +16,8 @@ struct Town {
 
 std::vector<std::string> split(std::string str, char delimiter);
 void parser(std::vector<Town> &towns, int argc, char **argv);
-void frontRoad(std::deque<Town> &que, const std::vector<Town> &towns,
+int frontRoad(std::deque<Town> &que, const std::vector<Town> &towns,
                int i, int argc);
-void backRoad(std::deque<Town> &que, const std::vector<Town> &towns,
+int backRoad(std::deque<Town> &que, const std::vector<Town> &towns,
                int i, int argc);
 

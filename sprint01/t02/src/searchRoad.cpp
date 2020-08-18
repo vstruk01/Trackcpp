@@ -1,10 +1,10 @@
 #include "visitAll.h"
 
-void frontRoad(std::deque<Town> &que, const std::vector<Town>& towns,
+int frontRoad(std::deque<Town> &que, const std::vector<Town>& towns,
                  int i, int argc) {
     int stamina = 0;
-    
-    for (int j = 0, n = i; j < argc - 1; j++, n++) {
+
+    for (int j = 0, n = i; j < argc - 2; j++, n++) {
         if (n == argc - 1)
             n = 0;
         stamina += towns[n].stamina;
@@ -16,14 +16,15 @@ void frontRoad(std::deque<Town> &que, const std::vector<Town>& towns,
             break;
         }
     }
+    return stamina;
 }
 
 
-void backRoad(std::deque<Town> &que, const std::vector<Town>& towns,
+int backRoad(std::deque<Town> &que, const std::vector<Town>& towns,
                  int i, int argc) {
     int stamina = 0;
 
-    for (int j = 0, n = i, len = n - 1; j < argc - 1; j++, n--, len--) {
+    for (int j = 0, n = i, len = n - 1; j < argc - 2; j++, n--, len--) {
         if (n == -1)
             n = argc - 2;
         if (len == -1)
@@ -31,11 +32,12 @@ void backRoad(std::deque<Town> &que, const std::vector<Town>& towns,
         stamina += towns[n].stamina;
         if (towns[len].distance <= stamina) {
             que.push_back(towns[n]);
-            stamina -= towns[n].distance;
+            stamina -= towns[len].distance;
         } else {
             que.resize(0);
             break;
         }
     }
+    return stamina;
 }
 
