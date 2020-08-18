@@ -3,7 +3,7 @@
 
 static void validator(size_t idx, char *error) {
     if (error[idx] != '\0') {
-        throw error;
+        throw false;
     }
 }
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
         try {
             size_t idx;
             cont = argv[2];
-            auto l = stoi(std::string(argv[2]), &idx, 10);
+            auto l = stoi(std::string(argv[2]), &idx);
             validator(idx, argv[2]);
             cont = argv[3];
             auto h = stof(std::string(argv[3]), &idx);
@@ -27,9 +27,6 @@ int main(int argc, char **argv) {
             std::cout << "Name = " << argv[1] << "\nLevel = " << l
                       << "\nHealth = " << h << "\nStamina = " << s << std::endl;
         }
-        catch(double){}
-        catch(float){}
-        catch(int) {}
         catch(...) {
             std::cerr << "Invalid argument: " << cont << std::endl;
             return 1;
