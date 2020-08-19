@@ -1,20 +1,19 @@
 #include "visitAll.h"
 
 void parser(std::vector<Town>& towns, int argc, char **argv) {
-    int idx = 0;
     Town tmp;
 
+    if (argc < 2) {
+        std::cerr << "usage: ./visitAll [[name,stamina,distance] ...]\n";
+        exit(1);
+    }
     for (int i = 0; i < argc - 1; i++) {
         std::vector<std::string> ss = split(std::string(argv[i + 1]), ',');
-        if (ss.size() != 3) {
-            std::cout << "Argument " << argv[i + 1] << " is not valid" << std::endl;
-            exit(1);
-        }
-        tmp.n = i;
-        tmp.name = ss[0];
         try {
-            if (ss[0] == "")
+            if (ss.size() != 3)
                 throw false;
+            tmp.n = i;
+            tmp.name = ss[0];
             size_t idx;
             int s = stoi(ss[1], &idx);
             if (ss[1].size() != idx)

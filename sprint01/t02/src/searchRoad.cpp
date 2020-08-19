@@ -1,10 +1,10 @@
 #include "visitAll.h"
 
-int frontRoad(std::deque<Town> &que, const std::vector<Town>& towns,
+void frontRoad(std::deque<Town> &que, const std::vector<Town>& towns,
                  int i, int argc) {
     int stamina = 0;
 
-    for (int j = 0, n = i; j < argc - 2; j++, n++) {
+    for (int j = 0, n = i; j < argc - 1; j++, n++) {
         if (n == argc - 1)
             n = 0;
         stamina += towns[n].stamina;
@@ -16,15 +16,13 @@ int frontRoad(std::deque<Town> &que, const std::vector<Town>& towns,
             break;
         }
     }
-    return stamina;
 }
 
-
-int backRoad(std::deque<Town> &que, const std::vector<Town>& towns,
+void backRoad(std::deque<Town> &que, const std::vector<Town>& towns,
                  int i, int argc) {
     int stamina = 0;
 
-    for (int j = 0, n = i, len = n - 1; j < argc - 2; j++, n--, len--) {
+    for (int j = 0, n = i, len = n - 1; j < argc - 1; j++, n--, len--) {
         if (n == -1)
             n = argc - 2;
         if (len == -1)
@@ -38,6 +36,4 @@ int backRoad(std::deque<Town> &que, const std::vector<Town>& towns,
             break;
         }
     }
-    return stamina;
 }
-

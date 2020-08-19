@@ -15,6 +15,6 @@ void validator(int argc, char **argv, std::forward_list<std::string> &names);
 bool ifShortS(std::string s);
 bool ifLongS(std::string s);
 bool ifContainCBL(std::string s);
-void machining(std::forward_list<std::string> &names);
+void machining(std::forward_list<std::string> &names, char **argv);
 
-void streamToFile(std::forward_list<std::string>& names);
+void streamToFile(std::forward_list<std::string>& names, char *name_file);

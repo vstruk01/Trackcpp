@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libvisit.a CMakeFiles/visit.dir/parser.cpp.o CMakeFiles/visit.dir/searchRoad.cpp.o CMakeFiles/visit.dir/split.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libvisit.a

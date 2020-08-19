@@ -1,10 +1,16 @@
-set(GCC_COVERAGE_COMPILE_FLAGS "-std=c++17")
+cmake_minimum_required(VERSION 3.10)
 
-add_definitions(${GCC_COVERAGE_COMPILE_FLAGS})
 project(visitAll)
 
-include_directories(src/)
+set(CMAKE_CXX_STANDARD 17)
 
-file(GLOB CPPS "src/*.cpp" "main.cpp")
+add_subdirectory(src)
 
-add_executable(${PROJECT_NAME} ${CPPS})
+add_executable(visitAll main.cpp)
+
+target_link_libraries(visitAll PUBLIC visit)
+
+target_include_directories(visitAll PUBLIC
+                          "${PROJECT_BINARY_DIR}"
+                          "${PROJECT_SOURCE_DIR}/src"
+                          )

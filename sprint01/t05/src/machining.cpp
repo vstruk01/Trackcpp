@@ -21,7 +21,7 @@ bool ifLongS(std::string s) {
     return false;
 }
 
-void machining(std::forward_list<std::string>& names) {
+void machining(std::forward_list<std::string>& names, char **argv) {
     auto del = std::remove_if(names.begin(), names.end(), ifContainCBL);
     auto prev = names.before_begin();
 
@@ -30,6 +30,12 @@ void machining(std::forward_list<std::string>& names) {
     names.erase_after(prev, names.end());
     std::replace_if(names.begin(), names.end(), ifShortS, "Short one");
     std::replace_if(names.begin(), names.end(), ifLongS, "Long one");
+    names.sort();
+    del = std::unique(names.begin(), names.end());
+    prev = names.before_begin();
+    for (auto it = names.begin(); it != del; it++)
+        prev = it;
+    names.erase_after(prev, names.end());
 
-    streamToFile(names);
+    streamToFile(names, argv[1]);
 }

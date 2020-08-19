@@ -1,0 +1,6 @@
+/Users/vstruk/Desktop/Trackcpp/sprint01/t02/build/CMakeFiles/rebuild_cache.dir
+/Users/vstruk/Desktop/Trackcpp/sprint01/t02/build/CMakeFiles/edit_cache.dir
+/Users/vstruk/Desktop/Trackcpp/sprint01/t02/build/CMakeFiles/visitAll.dir
+/Users/vstruk/Desktop/Trackcpp/sprint01/t02/build/src/CMakeFiles/rebuild_cache.dir
+/Users/vstruk/Desktop/Trackcpp/sprint01/t02/build/src/CMakeFiles/edit_cache.dir
+/Users/vstruk/Desktop/Trackcpp/sprint01/t02/build/src/CMakeFiles/visit.dir
