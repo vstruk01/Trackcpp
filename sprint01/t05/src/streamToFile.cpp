@@ -2,12 +2,14 @@
 
 void streamToFile(std::forward_list<std::string>& names, char *name_file) {
     std::ofstream file;
-    std::vector<std::string> name_split = split(std::string(name_file), '.');
-    std::string r_name_file = name_split[0] + "_mod";
+    std::string fileName = std::string(name_file);
 
-    if (name_split.size() > 1)
-        r_name_file += "." + name_split[1];
-    file.open(r_name_file);
+    if (fileName.find_last_of(".") != std::string::npos) {
+        fileName.insert(fileName.find_last_of('.'), "_mod");
+    } else {
+        fileName += "_mod";
+    }
+    file.open(fileName);
     for (std::string& name : names) {
         file << name << '\n';
     }

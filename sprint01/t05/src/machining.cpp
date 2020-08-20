@@ -31,11 +31,8 @@ void machining(std::forward_list<std::string>& names, char **argv) {
     std::replace_if(names.begin(), names.end(), ifShortS, "Short one");
     std::replace_if(names.begin(), names.end(), ifLongS, "Long one");
     names.sort();
-    del = std::unique(names.begin(), names.end());
-    prev = names.before_begin();
-    for (auto it = names.begin(); it != del; it++)
-        prev = it;
-    names.erase_after(prev, names.end());
+    names.unique();
+    names.reverse();
 
     streamToFile(names, argv[1]);
 }
