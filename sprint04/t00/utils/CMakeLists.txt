@@ -1,3 +1,3 @@
-# file(GLOB CPPS "*.cpp")
+file(GLOB CPPS "*.cpp")
 
-add_library(algorithmUtils algorithmUtils.h)
+add_library(algorithmUtils ${CPPS})
