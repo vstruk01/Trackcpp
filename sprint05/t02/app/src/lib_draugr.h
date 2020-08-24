@@ -6,7 +6,7 @@
 #include <vector>
 #include <sstream>
 
-std::vector<std::string> validator(int &shout, int &health, int &frost, char **argv, int argc);
+std::vector<std::string> validator(int &shout, double &health, int &frost, char **argv, int argc);
 std::vector<std::string> split(std::string str, char delimiter);
 
 class Draugr {

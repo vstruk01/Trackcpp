@@ -5,7 +5,8 @@ int main(int argc, char **argv) {
         std::cerr << "usage: ./draugr [shoutNumber] [name1,name2] [health] [frostResist]\n";
         return 1;
     }
-    int shout = 0, health = 0, frost = 0;
+    int shout = 0, frost = 0;
+    double health = 0;
 
     std::vector<std::string> names = validator(shout, health, frost, argv, argc);
     if (shout > 8) {

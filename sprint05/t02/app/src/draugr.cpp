@@ -1,14 +1,8 @@
 #include "lib_draugr.h"
 
-Draugr::Draugr() : m_frostResist(50), m_health(100) {
-    std::cout << "Draugr with " << m_health << " health and "
-              << m_frostResist << "\% frost resist was born!\n";
-}
+Draugr::Draugr() : Draugr(100, 50) {}
+Draugr::Draugr(int frost) : Draugr(100, frost) {}
 Draugr::Draugr(double health, int frost) : m_frostResist(frost), m_health(health) {
-    std::cout << "Draugr with " << m_health << " health and "
-              << m_frostResist << "\% frost resist was born!\n";
-}
-Draugr::Draugr(int frost) : m_frostResist(frost), m_health(100) {
     std::cout << "Draugr with " << m_health << " health and "
               << m_frostResist << "\% frost resist was born!\n";
 }
@@ -67,7 +61,7 @@ void Draugr::setName(const std::string &&name) {
     m_name = name;
 }
 
-std::vector<std::string> validator(int& shout, int& health, int& frost, char **argv, int argc) {
+std::vector<std::string> validator(int& shout, double& health, int& frost, char **argv, int argc) {
     std::vector<std::string> names = split(std::string(argv[2]), ',');
     try {
         size_t idx = 0;
@@ -75,7 +69,7 @@ std::vector<std::string> validator(int& shout, int& health, int& frost, char **a
         if (idx != std::string(argv[1]).size())
             throw false;
         if (argc > 3) {
-            health = stoi(std::string(argv[3]), &idx);
+            health = stod(std::string(argv[3]), &idx);
             if (idx != std::string(argv[3]).size())
                 throw false;
             if (argc == 5) {
