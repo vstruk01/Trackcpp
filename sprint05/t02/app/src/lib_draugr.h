@@ -13,7 +13,7 @@ class Draugr {
     public:
         Draugr();
         Draugr(int frost);
-        Draugr(double health, int frost);
+        Draugr(double health, int frost = 50);
         Draugr(Draugr& other);
         Draugr(Draugr&& other);
 

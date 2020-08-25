@@ -35,9 +35,9 @@ void Draugr::shoutPhrase(int shoutNumber) const {
         {7, "Aav Dilon!"},
         {8, "Sovngarde Saraan!"}};
     try {
-        std::string s = sN.at(shoutNumber);
         std::cout << "Draugr " << m_name << " (" << m_health << " health, "
-                  << m_frostResist << "\% frost resist) shouts:\n" << s << '\n';
+                  << m_frostResist << "\% frost resist) shouts:\n"
+                  << sN.at(shoutNumber) << '\n';
     }
     catch (...) {
         std::cerr << "Invalid shoutNumber\n";

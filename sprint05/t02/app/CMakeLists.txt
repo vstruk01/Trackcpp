@@ -12,5 +12,6 @@ add_executable(${PROJECT_NAME} ${CPPS})
 
 target_include_directories(${PROJECT_NAME} PUBLIC
                           "${PROJECT_BINARY_DIR}"
-                          "${PROJECT_SOURCE_DIR}/src"
+                          "${PROJECT_BINARY_DIR}/app"
+                          "${PROJECT_SOURCE_DIR}/app/src"
                           )
