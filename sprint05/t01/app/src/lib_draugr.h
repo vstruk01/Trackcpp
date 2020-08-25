@@ -4,13 +4,13 @@
 #include <iostream>
 #include <string>
 
-void validator(int& shout, int& health, int& frost, char **argv, int argc);
+void validator(int& shout, double& health, int& frost, char **argv, int argc);
 
 class Draugr {
     public:
         Draugr();
         Draugr(int frost);
-        Draugr(double health, int frost);
+        Draugr(double health, int frost = 50);
 
         void shoutPhrase(int shoutNumber) const;
     private:

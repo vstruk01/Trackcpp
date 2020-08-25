@@ -1,11 +1,13 @@
 #include "lib_draugr.h"
 
+Draugr::Draugr() : Draugr(100, 50) {}
 
+Draugr::Draugr(int frost) : Draugr(100, frost) {}
 
-
-Draugr::Draugr() : m_frostResist(50), m_health(100) {}
-Draugr::Draugr(double health, int frost) : m_frostResist(frost), m_health(health) {}
-Draugr::Draugr(int frost) : m_frostResist(frost), m_health(100) {}
+Draugr::Draugr(double health, int frost) : m_frostResist(frost), m_health(health) {
+    std::cout << "Draugr with " << m_health << " health and "
+              << m_frostResist << "\% frost resist was born!\n";
+}
 
 void Draugr::shoutPhrase(int shoutNumber) const {
     std::map<int, std::string> sN{
@@ -19,12 +21,9 @@ void Draugr::shoutPhrase(int shoutNumber) const {
         {7, "Aav Dilon!"},
         {8, "Sovngarde Saraan!"}};
     try {
-        std::string s = sN.at(shoutNumber);
-        std::cout << "Draugr with " << m_health << " health and "
-                  << m_frostResist << "\% frost resist was born!\n";
-        std::cout << "Draugr (" << m_health <<  " health, "
-                  << m_frostResist << "\% frost resist) shouts:\n";
-        std::cout << s << '\n';
+        std::cout << "Draugr (" << m_health << " health, "
+                  << m_frostResist << "\% frost resist) shouts:\n"
+                  << sN.at(shoutNumber) << '\n';
     }
     catch (...) {
         std::cerr << "Invalid shoutNumber\n";
@@ -32,16 +31,17 @@ void Draugr::shoutPhrase(int shoutNumber) const {
     }
 }
 
-void validator(int& shout, int& health, int& frost, char **argv, int argc) {
+void validator(int& shout, double& health, int& frost, char **argv, int argc) {
     try {
         size_t idx = 0;
         shout = stoi(std::string(argv[1]), &idx);
         if (idx != std::string(argv[1]).size())
             throw false;
         if (argc > 2) {
-            health = stoi(std::string(argv[2]), &idx);
-            if (idx != std::string(argv[2]).size())
+            health = stod(std::string(argv[2]), &idx);
+            if (idx != std::string(argv[2]).size()) {
                 throw false;
+            }
             if (argc == 4) {
                 frost = stoi(std::string(argv[3]), &idx);
                 if (idx != std::string(argv[3]).size())
