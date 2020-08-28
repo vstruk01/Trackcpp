@@ -4,45 +4,46 @@
 // using namespace CBL;
 
 int main() {
-    std::cout << "\n\t\t\t\t\t\tHello World\n\n";
+    // std::cout << "\n\t\t\t\t\t\tHello World\n\n";
 
-    CBL::Vector<std::string> v1;
-    CBL::Vector<std::string> v2;
+    CBL::Vector<std::string> v1(1023525);
 
-
-    v1.push_back("hello vlad, valick");
-    v1.push_back("hello yura");
-    v1.push_back("hello sasha");
-    v1.push_back("hello pasha");
-    v1.push_back("hello dasha");
-    v1.push_back("hello olenka");
-
-    v2 = v1;
-    v2.push_back("ohayo");
-    v2.push_back("ikuso");
+    // CBL::Vector<std::string> v2;
 
 
+    // v1.push_back("hello vlad, valick");
+    // v1.push_back("hello yura");
+    // v1.push_back("hello sasha");
+    // v1.push_back("hello pasha");
+    // v1.push_back("hello dasha");
+    // v1.push_back("hello olenka");
 
-    std::cout << "v1 = \n";
-    for (std::string i : v1) {
-        std::cout << i << '\n';
-    }
-    std::cout << '\n';
+    // v2 = v1;
+    // v2.push_back("ohayo");
+    // v2.push_back("ikuso");
 
-    std::cout << "v2 = \n";
-    for (std::string i : v2) {
-        std::cout << i << '\n';
-    }
-    std::cout << '\n';
 
-    CBL::Vector<int> v3 {1,2,3,4};
 
-    v3.push_back(5);
+    // std::cout << "v1 = \n";
+    // for (std::string i : v1) {
+    //     std::cout << i << '\n';
+    // }
+    // std::cout << '\n';
+
+    // std::cout << "v2 = \n";
+    // for (std::string i : v2) {
+    //     std::cout << i << '\n';
+    // }
+    // std::cout << '\n';
+
+    // CBL::Vector<int> v3 {1,2,3,4};
+
+    // v3.push_back(5);
 
     
 
-    std::cout << "size = " << v3.size() << '\n';
-    std::cout << "capa = " << v3.capacity() << '\n';
+    // std::cout << "size = " << v3.size() << '\n';
+    // std::cout << "capa = " << v3.capacity() << '\n';
 
     // v1.insert(v1.begin() + 10000000000U, 10);
 
