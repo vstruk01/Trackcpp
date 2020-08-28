@@ -43,15 +43,15 @@ int main(int argc, char **argv) {
 
     std::cout << "\n***The battle has begun!***\n\n";
     while (true) {
-        imperial.attack(storm);
         storm.attack(imperial);
+        imperial.attack(storm);
         std::cout << "<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>\n";
-        if (storm.getHealth() <= 0) {
-            std::cout << "Imperial has won !\n\n";
-            return 0;
-        }
         if (imperial.getHealth() <= 0) {
             std::cout << "Stormcloack has won!\n\n";
+            return 0;
+        }
+        if (storm.getHealth() <= 0) {
+            std::cout << "Imperial has won !\n\n";
             return 0;
         }
     }
