@@ -145,8 +145,6 @@ namespace CBL {
 
             // element access
             T& operator[](size_t index) const {
-                if (index >= m_size)
-                    throw std::out_of_range("hah you're loser try again");
                 return m_buffer[index];
             };
             T& at(size_t index) const {

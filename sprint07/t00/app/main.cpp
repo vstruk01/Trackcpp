@@ -6,7 +6,7 @@
 int main() {
     // std::cout << "\n\t\t\t\t\t\tHello World\n\n";
 
-    CBL::Vector<std::string> v1(1023525);
+    // CBL::Vector<std::string> v1(1023525);
 
     // CBL::Vector<std::string> v2;
 
@@ -40,7 +40,6 @@ int main() {
 
     // v3.push_back(5);
 
-    
 
     // std::cout << "size = " << v3.size() << '\n';
     // std::cout << "capa = " << v3.capacity() << '\n';
