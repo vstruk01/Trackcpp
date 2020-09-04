@@ -12,39 +12,30 @@ namespace CBL {
             using iterator = T*;
             static const size_t npos = -1ul;
 
-            BasicString() {};
-            BasicString(const BasicString<T> &str);
-            BasicString(const BasicString<T> &str, size_t pos, size_t len = npos);
+            BasicString(){};                                                       // ? done
+            BasicString(const BasicString<T> &str);                                // ? done
+            BasicString(const BasicString<T> &str, size_t pos, size_t len = npos); // ? done
 
-            explicit BasicString(const T* str);
+            explicit BasicString(const T *str); // ? done
 
-            BasicString(const T *str, size_t n);
+            BasicString(const T *str, size_t n); // ? done
 
-            BasicString(size_t n, T c) {
-                m_buffer = new T[n];
-                for (int i = 0; i < n; i++)
-                    m_buffer[i] = c;
-            };
-
-            BasicString(iterator first, iterator last);
-            virtual ~BasicString() {
-                delete [] m_buffer;
-            };
+            BasicString(size_t n, T c);                 // ? done
+            BasicString(iterator first, iterator last); // ? done
+            virtual ~BasicString(); // ? done
 
             // iterators
-            iterator begin() const;
-            iterator end() const;
+            iterator begin() const; // ? done
+            iterator end() const; // ? done
 
             // capacity
-            size_t length() const {
-                return m_size;
-            };
+            size_t length() const; // ? done
 
             // element access
-            T &operator[](size_t index) const;
-            T &at(size_t index) const;
-            T &back() const;
-            T &front() const;
+            T &operator[](size_t index) const;  // ? done
+            T &at(size_t index) const;          // ? done
+            T &back() const;                    // ? done
+            T &front() const;                   // ? done
 
             // modifiers
             BasicString<T> &operator=(const BasicString<T> &str);
@@ -63,24 +54,18 @@ namespace CBL {
             void swap(BasicString<T> &str);
 
             // string operations
+            const T *c_str() const; // ? done
 
-            const T *c_str() const {
-                return m_buffer;
-            };
-            virtual int compare(const BasicString<T> &str) const {
-                return 1;
-            };
-            virtual int compare(const T *str) const {
-                return 1;
-            };
+            virtual int compare(const BasicString<T> &str) const; // ? done
+            virtual int compare(const T *str) const; // ? done
 
         protected:
             size_t m_size{0};
             T *m_buffer{nullptr};
     };
+
     class String : public BasicString<char> {
     public:
-        static const size_t npos = -1ul;
         String();
         String(const BasicString &str);
         String(const BasicString &str, size_t pos, size_t len = npos);
@@ -91,18 +76,18 @@ namespace CBL {
         int compare(const BasicString<char> &str) const;
         int compare(const char *str) const;
     };
-    // class WString : public BasicString<wchar_t> {
-    // public:
-    //     WString();
-    //     WString(const BasicString &str);
-    //     WString(const BasicString &str, size_t pos, size_t len = npos);
-    //     explicit WString(const char *str);
-    //     WString(const char *str, size_t n);
-    //     WString(size_t n, char c);
+    class WString : public BasicString<wchar_t> {
+    public:
+        WString();
+        WString(const BasicString &str);
+        WString(const BasicString &str, size_t pos, size_t len = npos);
+        explicit WString(const wchar_t *str);
+        WString(const wchar_t *str, size_t n);
+        WString(size_t n, char c);
 
-    //     int compare(const BasicString<wchar_t> &str) const;
-    //     int compare(const char *str) const;
-    // };
+        int compare(const BasicString<wchar_t> &str) const;
+        int compare(const char *str) const;
+    };
 }
 
 template<class T>
